@@ -1,0 +1,8 @@
+{
+  "params": "regtest",
+  "daemon": {
+    "rpcuser": "",
+    "rpcpassword": "",
+    "ip": ""
+  }
+}

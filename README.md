@@ -17,12 +17,11 @@ docker run -it -p 8090:8090 -v `pwd`:/opt/code/pln pln /bin/bash
 
 ### Community
 
-Mailing list: [lightning-dev](https://lists.blockstream.io/listinfo/lightning-dev)
+Mailing list: [lightning-dev](https://lists.linuxfoundation.org/mailman/listinfo/lightning-dev)
 
 Forum: [LightningNetworkTalk](http://www.lightningnetworktalk.org/index.php)
 
 IRC: \#lightning-dev
-
 
 ### Updating libraries
 
