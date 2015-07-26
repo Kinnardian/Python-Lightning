@@ -1,6 +1,8 @@
 [submodule "lib/python-bitcoinlib"]
 	path = lib/python-bitcoinlib
 	url = git@github.com:petertodd/python-bitcoinlib.git
+	ignore = dirty
 [submodule "lib/bottle"]
 	path = lib/bottle
 	url = git@github.com:bottlepy/bottle.git
+	ignore = dirty

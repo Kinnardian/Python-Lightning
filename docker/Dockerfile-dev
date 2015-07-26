@@ -1,0 +1,16 @@
+FROM ubuntu
+
+RUN sudo apt-get update
+RUN sudo apt-get install -y vim git
+RUN sudo apt-get install -y python3 python3-setuptools python3-pip
+
+# Dependency for python-bitcoinlib
+RUN sudo apt-get install -y libssl-dev
+
+# ptpython is a dev dependency for REPL
+RUN pip3 install ptpython
+
+EXPOSE 8090
+
+WORKDIR /opt/code/pln
+CMD /bin/bash
