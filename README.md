@@ -1,5 +1,5 @@
 # Python-Lightning
-A Python 3 implementation of the Lightning Network.
+A Python 3 implementation of the Bitcoin Lightning Network.
 
 ### Development
 
@@ -14,6 +14,15 @@ docker run -it -p 8090:8090 -v `pwd`:/opt/code/pln pln /bin/bash
 # From within the docker container:
 ./init.sh
 ```
+
+### Community
+
+Mailing list: [lightning-dev](https://lists.blockstream.io/listinfo/lightning-dev)
+
+Forum: [LightningNetworkTalk](http://www.lightningnetworktalk.org/index.php)
+
+IRC: \#lightning-dev
+
 
 ### Updating libraries
 
