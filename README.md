@@ -1,5 +1,17 @@
 # Python-Lightning
+
 A Python 3 implementation of the Bitcoin Lightning Network.
+
+### API
+
+This implementation of the Bitcoin Lightning network will be exposed via a REST API. The main resource is a Channel. Channels support CRUD operations:
+
+  - C - creates a channel
+  - R - reads a channel status
+  - U - updates the payment balances on a channel (or channel configurations)
+  - D - closes out an existing channel
+
+In addition, a subset of channel information will be available to peers, allowing for mapping out of the network's topology.
 
 ### Development
 
