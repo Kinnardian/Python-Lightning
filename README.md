@@ -8,7 +8,7 @@ This implementation of the Bitcoin Lightning network will be exposed via a REST 
 
   - C - creates a channel
   - R - reads a channel status
-  - U - updates the payment balances on a channel (or channel configurations)
+  - U - commits a payment to the channel (or updates channel configurations)
   - D - closes out an existing channel
 
 In addition, a subset of channel information will be available to peers, allowing for mapping out of the network's topology.
