@@ -1,47 +1,70 @@
-from bottle import Bottle, run
+from bottle import Bottle, run, request, abort
+from lightning import channel
+from lightning import exceptions as E
+
+# This is a basic API controller class
+# that does little more than define the routes
+# and make calls to lightning methods
 
 app = Bottle()
+
 @app.route('/channel', 'POST')
 def create_channel():
-  """
+  '''
   Request to open a new channel with this node.
   Request may certainly be denied.
-  """
-  return {}
+  '''
+  try:
+    return channel.create_channel(request.json)
+  except E.ChannelRequestError as e:
+    abort(400, str(e))
 
 @app.route('/channel', 'GET')
 def read_channel():
-  """
+  '''
   Read channel status.
   If proof of ownership of the channel key is given, then more
   detailed information will be given.
   Without proof of ownership of the channel key, limited information
   will be given.
-  """
-  return {}
+  '''
+  try:
+    return channel.read_channel(request.json)
+  except E.ChannelRequestError as e:
+    abort(400, str(e))
 
 @app.route('/channel', 'PATCH')
 def update_channel():
-  """
+  '''
   Make a payment on a channel.
-  """
-  return {}
+  An alternate type of patch is to
+  '''
+  try:
+    return channel.update_channel(request.json)
+  except E.ChannelRequestError as e:
+    abort(400, str(e))
 
 @app.route('/channel', 'DELETE')
 def destroy_channel():
-  """
+  '''
   Close out a channel.
-  """
-  return {}
+  '''
+  try:
+    return channel.destroy_channel(request.json)
+  except E.ChannelRequestError as e:
+    abort(400, str(e))
 
 @app.route('/channel', 'PUT')
 def refresh_channel():
-  """
+  '''
   Request to refresh a channel early, posting
   the net transactions to the blockchain early.
   Request may be refused.
-  """
-  return {}
+  '''
+  try:
+    return channel.refresh_channel(request.json)
+  except E.ChannelRequestError as e:
+    abort(400, str(e))
 
 # Use 0.0.0.0 since running in docker VM
 run(app, host="0.0.0.0", port=8090, debug=True)
