@@ -1,8 +1,8 @@
-from bottle import Bottle, run, request, abort
-from lightning import channel
-from lightning import exceptions as E
-from jsonschema import validate, ValidationError
 import schema
+import lightning
+from lightning import channel
+from bottle import Bottle, run, request, abort
+from jsonschema import validate, ValidationError
 
 # This is a basic API controller class
 # that does little more than define the routes
@@ -13,7 +13,7 @@ app = Bottle()
 @app.route('/channel', 'POST')
 def create_channel():
   '''
-  Request to open a new channel with this node.
+  Request to open a new channel with this nodlightning.
   Request may certainly be denied.
   '''
   try:
@@ -21,7 +21,7 @@ def create_channel():
     return channel.create_channel(request.json)
   except ValidationError as e:
     abort(400, str(e))
-  except E.ChannelRequestError as e:
+  except lightning.ChannelRequestError as e:
     abort(400, str(e))
   except ValueError as e:
     abort(400, str(e))
@@ -39,7 +39,7 @@ def read_channel():
     return channel.read_channel(request.json)
   except ValidationError as e:
     abort(400, str(e))
-  except E.ChannelRequestError as e:
+  except lightning.ChannelRequestError as e:
     abort(400, str(e))
   except ValueError as e:
     abort(400, str(e))
@@ -54,7 +54,7 @@ def update_channel():
     return channel.update_channel(request.json)
   except ValidationError as e:
     abort(400, str(e))
-  except E.ChannelRequestError as e:
+  except lightning.ChannelRequestError as e:
     abort(400, str(e))
   except ValueError as e:
     abort(400, str(e))
@@ -68,7 +68,7 @@ def destroy_channel():
     return channel.destroy_channel(request.json)
   except ValidationError as e:
     abort(400, str(e))
-  except E.ChannelRequestError as e:
+  except lightning.ChannelRequestError as e:
     abort(400, str(e))
   except ValueError as e:
     abort(400, str(e))
@@ -84,7 +84,7 @@ def refresh_channel():
     return channel.refresh_channel(request.json)
   except ValidationError as e:
     abort(400, str(e))
-  except E.ChannelRequestError as e:
+  except lightning.ChannelRequestError as e:
     abort(400, str(e))
   except ValueError as e:
     abort(400, str(e))

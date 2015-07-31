@@ -25,6 +25,7 @@ docker run -it -p 8090:8090 -v `pwd`:/opt/code/pln pln /bin/bash
 
 # From within the docker container:
 ./init.sh
+PYTHONPATH=`pwd` python3 server/main.py
 ```
 
 ### Community

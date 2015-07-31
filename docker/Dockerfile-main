@@ -13,5 +13,5 @@ ADD . /opt/code/pln/
 EXPOSE 8090
 
 WORKDIR /opt/code/pln
-CMD ./init.sh && python3 src/main.py
+CMD ./init.sh && PYTHONPATH=`pwd` python3 server/main.py
 
